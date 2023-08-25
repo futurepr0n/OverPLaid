@@ -7,4 +7,4 @@ mkdir -p ./out
 cmake -B ./build
 cd ./build
 make
-cp ./OverLaid ../out/
+cp ./OverPLaid ../out/

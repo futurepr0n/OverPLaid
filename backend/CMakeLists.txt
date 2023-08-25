@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0)
-project(OverLaid)
+project(OverPLaid)
 
 set(CMAKE_CXX_STANDARD 17)
 
@@ -8,6 +8,9 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_SOURCE_DIR}/cmake/)
 
 # Locate packages
 find_package(GLEW REQUIRED)
+if (GLEW_FOUND)
+    include_directories($(GLEW_INCLUDE_DIRS))
+endif()
 find_package(glfw3 3.3 REQUIRED)
 find_package(OpenGL REQUIRED)
 find_package(X11 REQUIRED)
@@ -26,7 +29,8 @@ add_library(imgui STATIC ${IMGUI_SOURCES})
 target_include_directories(imgui PUBLIC ${IMGUI_PATH})
 
 # Compile sources into executable
-add_executable(OverLaid main.cpp)
+add_executable(OverPLaid main.cpp)
 
 # Link libraries
-target_link_libraries(OverLaid imgui glfw ${OPENGL_LIBRARIES} ${GLEW_LIBRARIES} ${X11_LIBRARIES} ${CMAKE_DL_LIBS})
+#target_link_libraries(OverLaid imgui glfw ${OPENGL_LIBRARIES} ${GLEW_LIBRARIES} ${X11_LIBRARIES} ${CMAKE_DL_LIBS})
+target_link_libraries(OverPLaid imgui glfw ${OPENGL_LIBRARIES} ${GLEW_LIBRARIES} ${X11_LIBRARIES} ${CMAKE_DL_LIBS})

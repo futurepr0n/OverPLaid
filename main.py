@@ -7,7 +7,7 @@ import subprocess
 from typing import Optional
 import shutil
 
-CONFIG_PATH = '/home/deck/.config/OverLaid/config.json'
+CONFIG_PATH = '/home/deck/.config/OverPLaid/config.json'
 OVERLAY_PATH = '/home/deck/homebrew/overlays'
 
 logging.basicConfig(filename="/tmp/overlaid.log",
@@ -81,7 +81,7 @@ class OverLaidBackend:
                 widgets.append(widget)
 
         self.proc = subprocess.Popen(
-            ['/home/deck/homebrew/plugins/OverLaid/bin/OverLaid', json.dumps(widgets)],
+            ['/home/deck/homebrew/plugins/OverPLaid/bin/OverPLaid', json.dumps(widgets)],
             env={'DISPLAY': ':0'},
             stdout=subprocess.PIPE
         )
